@@ -148,12 +148,23 @@ public class ResourceCentre {
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
 		// write your code here
+		for (int i = 0; i < chromebookList.size(); i++) {
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
+					chromebookList.get(i).getDescription(),
+					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
+					chromebookList.get(i).getDueDate(), chromebookList.get(i).getOs());
+		}
 		return output;
 	}
 
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 
 		String output = retrieveAllChromebook(chromebookList);
+
+		ResourceCentre.setHeader("CHROMEBOOK LIST");
+		output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", "AVAILABLE",
+				"DUE DATE", "OPERATING SYSTEM");
+		output += retrieveAllChromebook(chromebookList);
 		System.out.println(output);
 	}
 
@@ -242,10 +253,11 @@ public class ResourceCentre {
 		}
 		return isLoaned;
 	}
-		
+
 
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
+
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
@@ -255,6 +267,7 @@ public class ResourceCentre {
 		} else {
 			System.out.println("Chromebook " + tag + " loaned out");
 		}
+
 
 	}
 
