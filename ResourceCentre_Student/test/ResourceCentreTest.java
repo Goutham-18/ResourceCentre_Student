@@ -129,15 +129,15 @@ public class ResourceCentreTest {
 		// write your code here
 		assertNotNull("Check if there is valid camcorder arraylist to add to", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
-		//
+		
 		Boolean returned= ResourceCentre.doReturnCamcorder(camcorderList, "CC0011");
 		assertFalse("Check that available camcorder CC0011 is returned - false?", returned);
-		//
+		
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		cc2.setIsAvailable(false);
 		returned= ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
 		assertTrue("Check that loaned camcorder CC0012 is returned - true?", returned);
-		//
+		
 		returned= ResourceCentre.doReturnCamcorder(camcorderList, "CC0010");
 		assertFalse("Check that non-registered camcorder CC0010 is returned - false?", returned);
 		
@@ -148,15 +148,15 @@ public class ResourceCentreTest {
 		// write your code here
 		assertNotNull("Check if there is valid chromebook arraylist to add to", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
-		//
+		
 		Boolean returned= ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
 		assertFalse("Check that available chromebook CB0011 is returned - false?", returned);
-		//
+		
 		ResourceCentre.addChromebook(chromebookList, cb2);
 		cb2.setIsAvailable(false);
 		returned= ResourceCentre.doReturnChromebook(chromebookList, "CB0012");
 		assertTrue("Check that loaned chromebook CB0012 is returned - true?", returned);
-		//
+		
 		returned= ResourceCentre.doReturnChromebook(chromebookList, "CB0010");
 		assertFalse("Check that non-registered chromebook CB0010 is returned - false?", returned);
 	}
